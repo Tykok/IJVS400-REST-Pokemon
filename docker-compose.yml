@@ -4,7 +4,7 @@ services:
     build: 
       context: .
       target: run
-    container_name: NodeJS
+    container_name: PokeAPI-Node
     restart: always
     ports:
       - '8080:8080'
@@ -22,14 +22,14 @@ services:
       - ./:/app
     command: >
       bash -c "
-      npx sequelize-cli db:migrate:undo
-      && npx sequelize-cli db:seed:undo:all
+      npx sequelize-cli db:seed:undo:all
+      && npx sequelize-cli db:migrate:undo
       && npx sequelize-cli db:migrate 
       && npx sequelize-cli db:seed:all
       && npm run dev"
   postgres_database:
     image: postgres
-    container_name: PostgreSQL
+    container_name: PokeAPI-Postgres
     restart: always
     environment:
       - POSTGRES_USER=docker

@@ -1,46 +1,7 @@
-import { DataTypes } from 'sequelize'
-
-export const userColumns = {
-  id: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    autoIncrement: true
-  },
-  firstName: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    field: 'first_name'
-  },
-  lastName: {
-    type: DataTypes.STRING,
-    field: 'last_name'
-  },
-  login: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  password: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  phone: {
-    type: DataTypes.STRING,
-    allowNull: true
-  },
-  mail: {
-    type: DataTypes.STRING,
-    allowNull: true
-  }
-}
-
-export const userTableName = 'user'
-export const userModelName = 'user'
-export const defaultSchema = 'public'
-
 /**
-  * An exhaustive list of status codes.
-  * @link https://developer.mozilla.org/fr/docs/Web/HTTP/Status
-*/
+ * An exhaustive list of status codes.
+ * @link https://developer.mozilla.org/fr/docs/Web/HTTP/Status
+ */
 export enum HTTP_STATUS_CODE {
   OK = 200,
   CREATED = 201,
