@@ -1,0 +1,44 @@
+version: "3.9"
+services:
+  node:
+    build: 
+      context: .
+      target: run
+    container_name: NodeJS
+    restart: always
+    ports:
+      - '8080:8080'
+    links:
+      - postgres_database
+    depends_on:
+      - postgres_database
+    environment:
+      DB_NAME: DB_TEST
+      DB_PASSWORD: docker
+      DB_USER: docker
+      DB_HOST: postgres
+      DB_PORT: 5432
+    volumes:
+      - ./:/app
+    command: >
+      bash -c "
+      npx sequelize-cli db:migrate:undo
+      && npx sequelize-cli db:seed:undo:all
+      && npx sequelize-cli db:migrate 
+      && npx sequelize-cli db:seed:all
+      && npm run dev"
+  postgres_database:
+    image: postgres
+    container_name: PostgreSQL
+    restart: always
+    environment:
+      - POSTGRES_USER=docker
+      - POSTGRES_PASSWORD=docker
+      - POSTGRES_DB=DB_TEST
+    ports:
+      - '2345:5432'
+    volumes: 
+      - db:/var/lib/postgresql/data
+volumes:
+  db:
+    driver: local
