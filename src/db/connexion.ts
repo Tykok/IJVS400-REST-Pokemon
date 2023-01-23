@@ -1,5 +1,4 @@
 import { Sequelize } from 'sequelize'
-import console from '../utils/functions/console.log'
 
 // Specify to TypeScript compiler the variable will be not undefined
 const DB_NAME = process.env.DB_NAME!
@@ -10,28 +9,25 @@ const DB_PORT = process.env.DB_PORT!
 const NODE_ENV = process.env.NODE_ENV!
 
 const connect = (): Sequelize => {
-  const sequelize = new Sequelize(
-    DB_NAME,
-    DB_USER,
-    DB_PASSWORD,
-    {
-      host: DB_HOST,
-      port: Number(DB_PORT),
-      dialect: 'postgres',
-      dialectOptions: {
-        useUTC: true
-      },
+  const sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
+    host: DB_HOST,
+    port: Number(DB_PORT),
+    dialect: 'postgres',
+    dialectOptions: {
+      useUTC: true
+    },
 
-      // eslint-disable-next-line no-console
-      logging: (msg) => (NODE_ENV === 'DEV' ? console.debug(msg) : false)
-    }
-  )
+    // eslint-disable-next-line no-console
+    logging: (msg) => (NODE_ENV === 'DEV' ? console.debug(msg) : false)
+  })
   // Check connexion
-  sequelize.authenticate()
+  sequelize
+    .authenticate()
     .then(() => {
       console.log(`Database ${DB_NAME} is now up`)
     })
-    .catch(() => {
+    .catch((err) => {
+      console.log(err)
       console.error(`An error occured when try to connect to ${DB_NAME}`)
     })
 
