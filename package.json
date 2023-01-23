@@ -1,9 +1,9 @@
 {
-  "name": "__project",
-  "version": "2.0.0",
-  "description": "Description of __project here",
+  "name": "PokeAPI",
+  "version": "1.0.0",
+  "description": "A simple Pokémon API build with NodeJS, Express, Typescript and Sequelize",
   "main": "dist/index.js",
-  "repository": "git@github.com:Tykok/__project.git",
+  "repository": "https://github.com/Tykok/IJVS400-REST-Pokemon",
   "author": "Tykok <treportelie12@gmail.com>",
   "license": "MIT",
   "scripts": {
