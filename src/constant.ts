@@ -2,7 +2,7 @@
  * An exhaustive list of status codes.
  * @link https://developer.mozilla.org/fr/docs/Web/HTTP/Status
  */
-export enum HTTP_STATUS_CODE {
+enum HttpStatusCode {
   OK = 200,
   CREATED = 201,
   ACCEPTED = 202,
@@ -25,5 +25,7 @@ export enum HTTP_STATUS_CODE {
   BAD_GATEWAY = 502,
   SERVICE_UNAVAILABLE = 503,
   GATEWAY_TIMEOUT = 504,
-  NETWORK_AUTHENTICATION_REQUIRED = 511,
+  NETWORK_AUTHENTICATION_REQUIRED = 511
 }
+
+export default HttpStatusCode

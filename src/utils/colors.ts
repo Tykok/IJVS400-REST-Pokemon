@@ -32,10 +32,6 @@ export const colors = {
   }
 }
 
-export const getColoredError = (suffix: string, value: string): string => {
-  return `\n${colors.fg.yellow}${suffix} :${colors.reset} ${value}`
-}
+export const getColoredError = (suffix: string, value: string): string => `\n${colors.fg.yellow}${suffix} :${colors.reset} ${value}`
 
-export const getColoredName = (value: string): string => {
-  return `\n${colors.fg.yellow}${value}${colors.reset}\n`
-}
+export const getColoredName = (value: string): string => `\n${colors.fg.yellow}${value}${colors.reset}\n`

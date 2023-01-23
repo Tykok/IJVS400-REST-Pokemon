@@ -1,10 +1,15 @@
-type Pokemon = {
-  pokedexNumber: number;
-  name: string;
-  size: number;
-  weight: number;
-  stats: object[];
-  picture?: string;
-};
+import Abilities from './abilities'
+import Type from './type'
 
-export default Pokemon;
+type Pokemon = {
+  pokedexNumber: number
+  name: string
+  size: number
+  weight: number
+  stats: object[]
+  picture?: string
+  types?: Type[]
+  abilities?: Abilities[]
+}
+
+export default Pokemon
