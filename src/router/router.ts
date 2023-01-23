@@ -6,9 +6,9 @@ import typeRouter from './type'
 
 const router = express.Router()
 
-router.use('/pokemon', pokemonRouter)
-router.use('/type', typeRouter)
-router.use('/abilities', abilitiesRouter)
+router.use('/api/pokemons', pokemonRouter)
+router.use('/api/types', typeRouter)
+router.use('/api/abilities', abilitiesRouter)
 
 // Default route for all other endpoints
 router.get('*', (req, res) => {

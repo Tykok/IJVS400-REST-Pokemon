@@ -1,4 +1,4 @@
-import Abilities from './abilities'
+import Abilities from './ability'
 import Type from './type'
 
 type Pokemon = {

@@ -1,6 +1,6 @@
 import Pokemon from './pokemon'
 
-type Abilities = {
+type Ability = {
   id: number
   name: string
   description: string
@@ -10,4 +10,4 @@ type Abilities = {
   pokemons?: Pokemon[]
 }
 
-export default Abilities
+export default Ability
