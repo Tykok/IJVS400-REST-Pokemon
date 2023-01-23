@@ -11,7 +11,7 @@ router.use('/api/types', typeRouter)
 router.use('/api/abilities', abilitiesRouter)
 
 // Default route for all other endpoints
-router.get('*', (req, res) => {
+router.all('*', (req, res) => {
   res.status(404).send('This endpoint does not exist')
 })
 

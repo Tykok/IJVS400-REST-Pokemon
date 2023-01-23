@@ -22,7 +22,7 @@ abilitiesRouter.put('/:id', async (req, res) => {
   if (!abilityId) res.status(HttpStatusCode.BAD_REQUEST).send('Invalid ability id')
   const updatedAbility = await updateAbility(abilityId, ability)
   if (!updatedAbility) res.status(HttpStatusCode.NOT_FOUND).send('Ability not found, was not updated')
-  res.status(HttpStatusCode.OK).send(updatedAbility)
+  res.status(HttpStatusCode.OK).send(`${updatedAbility} ability updated`)
 })
 
 export default abilitiesRouter

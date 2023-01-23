@@ -2,7 +2,12 @@ import PokemonModel from '../db/models/pokemon.model'
 import Pokemon from '../types/pokemon'
 
 export const getPokemon = async (pokemonId: number): Promise<Pokemon> => {
-  const currentPokemon = await PokemonModel.findByPk(pokemonId)
+  const currentPokemon = await PokemonModel.findOne({
+    where: {
+      pokedex_number: pokemonId
+    }
+  })
+  if (!currentPokemon) throw new Error('Pokemon not found')
   return currentPokemon as unknown as Pokemon
 }
 
@@ -16,10 +21,10 @@ export const createPokemon = async (pokemon: Pokemon): Promise<Pokemon> => {
   return newPokemon as unknown as Pokemon
 }
 
-export const updatePokemon = async (pokemon: Pokemon): Promise<Pokemon> => {
+export const updatePokemon = async (pokemonId: number, pokemon: Pokemon): Promise<Pokemon> => {
   const updatedPokemon = await PokemonModel.update(pokemon, {
     where: {
-      pokedexNumber: pokemon.pokedexNumber
+      pokedexNumber: pokemonId
     }
   })
   return updatedPokemon as unknown as Pokemon
@@ -28,7 +33,7 @@ export const updatePokemon = async (pokemon: Pokemon): Promise<Pokemon> => {
 export const deletePokemonById = async (pokemonId: number): Promise<number> => {
   const deletedPokemon = await PokemonModel.destroy({
     where: {
-      id: pokemonId
+      pokedex_number: pokemonId
     }
   })
   return deletedPokemon

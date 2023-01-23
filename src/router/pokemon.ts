@@ -30,11 +30,12 @@ pokemonRouter.post('/', async (req, res) => {
   res.status(HttpStatusCode.CREATED).send(newPokemon)
 })
 
-pokemonRouter.put('/', async (req, res) => {
+pokemonRouter.put('/:id', async (req, res) => {
   const pokemon = req.body as Pokemon
-  const updatedPokemon = await updatePokemon(pokemon)
+  const pokemonId = Number(req.params.id)
+  const updatedPokemon = await updatePokemon(pokemonId, pokemon)
   if (!updatedPokemon) res.status(HttpStatusCode.NOT_FOUND).send('Pokemon not found, was not updated')
-  res.status(HttpStatusCode.OK).send(updatedPokemon)
+  res.status(HttpStatusCode.OK).send(`${updatedPokemon} pokemon updated`)
 })
 
 pokemonRouter.delete('/:id', async (req, res) => {
@@ -42,6 +43,7 @@ pokemonRouter.delete('/:id', async (req, res) => {
   if (!pokemonId) res.status(HttpStatusCode.BAD_REQUEST).send('Invalid pokemon id')
   const deletedPokemon = await deletePokemonById(pokemonId)
   if (!deletedPokemon) res.status(HttpStatusCode.NOT_FOUND).send('No pokemon found to delete')
+
   res.status(HttpStatusCode.OK).send(`${deletedPokemon} pokemon deleted`)
 })
 

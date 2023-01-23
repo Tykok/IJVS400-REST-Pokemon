@@ -27,7 +27,7 @@ typeRouter.put('/:id', async (req, res) => {
   if (!typeId) res.status(HttpStatusCode.BAD_REQUEST).send('Invalid type id')
   const updatedType = await updateType(typeId, type)
   if (!updatedType) res.status(HttpStatusCode.NOT_FOUND).send('Type not found, was not updated')
-  res.status(HttpStatusCode.OK).send(updatedType)
+  res.status(HttpStatusCode.OK).send(`${updatedType} type updated`)
 })
 
 export default typeRouter
