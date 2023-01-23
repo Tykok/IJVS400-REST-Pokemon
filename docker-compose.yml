@@ -20,13 +20,7 @@ services:
       DB_PORT: 5432
     volumes:
       - ./:/app
-    command: >
-      bash -c "
-      npx sequelize-cli db:seed:undo:all
-      && npx sequelize-cli db:migrate:undo
-      && npx sequelize-cli db:migrate 
-      && npx sequelize-cli db:seed:all
-      && npm run dev"
+    command: bash ./start.sh
   postgres_database:
     image: postgres
     container_name: PokeAPI-Postgres

@@ -16,7 +16,6 @@ const connect = (): Sequelize => {
     dialectOptions: {
       useUTC: true
     },
-
     // eslint-disable-next-line no-console
     logging: (msg) => (NODE_ENV === 'DEV' ? console.debug(msg) : false)
   })

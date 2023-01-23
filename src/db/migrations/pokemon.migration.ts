@@ -22,8 +22,8 @@ export const up = async (queryInterface: QueryInterface) => {
 
 export const down = async (queryInterface: QueryInterface) => {
   await queryInterface.dropTable(skillsPokemonTableName)
+  await queryInterface.dropTable(typePokemonTableName)
   await queryInterface.dropTable(typeTableName)
   await queryInterface.dropTable(skillsTableName)
-  await queryInterface.dropTable(typePokemonTableName)
   await queryInterface.dropTable(pokemonTableName)
 }
