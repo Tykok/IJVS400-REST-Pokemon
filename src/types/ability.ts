@@ -1,5 +1,3 @@
-import Pokemon from './pokemon'
-
 type Ability = {
   id: number
   name: string
@@ -7,7 +5,6 @@ type Ability = {
   power: number
   precision: number
   pp_max: number
-  pokemons?: Pokemon[]
 }
 
 export default Ability

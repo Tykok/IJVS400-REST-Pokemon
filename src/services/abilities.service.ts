@@ -23,3 +23,12 @@ export const getAllPokemonAbilities = async (): Promise<Ability[]> => {
   const allAbilities = await SkillsModel.findAll()
   return allAbilities as unknown as Ability[]
 }
+
+export const updateAbility = async (abilityId: number, ability: Ability): Promise<Ability> => {
+  const updatedAbility = await SkillsModel.update(ability, {
+    where: {
+      id: abilityId
+    }
+  })
+  return updatedAbility as unknown as Ability
+}
