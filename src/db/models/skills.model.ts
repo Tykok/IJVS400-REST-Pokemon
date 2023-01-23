@@ -1,13 +1,8 @@
-import { Model } from "sequelize";
-import { sequelizeConnection } from "../connexion";
-import {
-  defaultSchema,
-  skillsColumns,
-  skillsModelName,
-  skillsTableName,
-} from "../db.constants";
+import { Model } from 'sequelize'
+import { sequelizeConnection } from '../connexion'
+import { defaultSchema, skillsColumns, skillsModelName, skillsTableName } from '../db.constants'
 
-const sequelize = sequelizeConnection;
+const sequelize = sequelizeConnection
 
 class SkillsModel extends Model {}
 
@@ -16,7 +11,7 @@ SkillsModel.init(skillsColumns, {
   schema: defaultSchema,
   modelName: skillsModelName,
   tableName: skillsTableName,
-  timestamps: false,
-});
+  timestamps: false
+})
 
-export default SkillsModel;
+export default SkillsModel
