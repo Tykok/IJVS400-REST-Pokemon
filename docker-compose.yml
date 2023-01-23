@@ -13,10 +13,10 @@ services:
     depends_on:
       - postgres_database
     environment:
-      DB_NAME: DB_TEST
+      DB_NAME: pokemon
       DB_PASSWORD: docker
       DB_USER: docker
-      DB_HOST: postgres
+      DB_HOST: postgres_database
       DB_PORT: 5432
     volumes:
       - ./:/app

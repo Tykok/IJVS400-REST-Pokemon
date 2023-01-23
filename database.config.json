@@ -2,7 +2,7 @@
   "development": {
     "username": "docker",
     "password": "docker",
-    "database": "DB_TEST",
+    "database": "pokemon",
     "port": "5432",
     "host": "postgres_database",
     "dialect": "postgres"

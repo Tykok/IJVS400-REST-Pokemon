@@ -1,7 +1,7 @@
 import { QueryInterface } from 'sequelize/types'
-import { Pokemon, pokemonTableName } from '../db.constants'
+import { PokemonColumn, pokemonTableName } from '../db.constants'
 
-const lines: Pokemon[] = [
+const lines: PokemonColumn[] = [
   {
     pokedex_number: 1,
     name: 'bulbasaur',
@@ -12,10 +12,10 @@ const lines: Pokemon[] = [
   }
 ]
 
-export const up = async (queryInterface: QueryInterface): Promise<number | object> => {
-  return await queryInterface.bulkInsert(pokemonTableName, lines)
+export const up = async (queryInterface: QueryInterface) => {
+  await queryInterface.bulkInsert(pokemonTableName, lines)
 }
 
 export const down = async (queryInterface: QueryInterface) => {
-  return await queryInterface.dropTable(pokemonTableName)
+  await queryInterface.dropTable(pokemonTableName)
 }
