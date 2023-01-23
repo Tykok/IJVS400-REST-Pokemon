@@ -1,0 +1,1175 @@
+{
+  "info": {
+    "_postman_id": "7e7f3754-4073-4831-b310-9c87f2681431",
+    "name": "IJVS400 Pokemon API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "24354369"
+  },
+  "item": [
+    {
+      "name": "Create a new Pokemon",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "  {\n    \"pokedexNumber\": 4,\n    \"name\": \"Charmander\",\n    \"size\": 0.6,\n    \"stats\": 309,\n    \"weight\": 8.5,\n    \"picture\": \"https://archives.bulbagarden.net/media/upload/2/27/0004Charmander.png\"\n  }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/pokemons",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "pokemons"]
+        },
+        "description": "With this endpoint, you can create a new Pokemon.\n\n> This endpoint need a JWT Token. Check how to get it in the documentation."
+      },
+      "response": [
+        {
+          "name": "Create a new Pokemon",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "  {\n    \"pokedexNumber\": 4,\n    \"name\": \"Charmander\",\n    \"size\": 0.6,\n    \"stats\": 309,\n    \"weight\": 8.5,\n    \"picture\": \"https://archives.bulbagarden.net/media/upload/2/27/0004Charmander.png\"\n  }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/pokemons",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "pokemons"]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "157"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"9d-TqCoNzOFtDIl24sl+OtOI0/SJ3Y\""
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 25 Jan 2023 10:11:29 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"pokedexNumber\": 4,\n    \"name\": \"Charmander\",\n    \"size\": 0.6,\n    \"stats\": 309,\n    \"weight\": 8.5,\n    \"picture\": \"https://archives.bulbagarden.net/media/upload/2/27/0004Charmander.png\"\n}"
+        },
+        {
+          "name": "Error when creating",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/pokemons",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "pokemons"]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "html",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "text/html; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "43"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"2b-IBEWWTHc+ZW0Re1ox18j+SJUkfs\""
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 25 Jan 2023 10:11:39 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "An error occured while creating the pokemon"
+        }
+      ]
+    },
+    {
+      "name": "Get all pokemons",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "",
+            "value": "",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/api/pokemons",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "pokemons"],
+          "query": [
+            {
+              "key": "token",
+              "value": "test",
+              "disabled": true
+            }
+          ]
+        },
+        "description": "With this endpoint you can get all pokemons."
+      },
+      "response": [
+        {
+          "name": "Get all pokemons",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "",
+                "value": "",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8080/api/pokemons",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "pokemons"],
+              "query": [
+                {
+                  "key": "token",
+                  "value": "test",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "323"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"143-bGtw72ZrjnvxcsSY3aJpmtjLLk4\""
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 25 Jan 2023 10:11:48 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n    {\n        \"pokedexNumber\": 1,\n        \"name\": \"bulbasaur\",\n        \"size\": 0.7,\n        \"weight\": 6.9,\n        \"stats\": 318,\n        \"picture\": \"https://i.pinimg.com/originals/41/a3/fe/41a3fedd08cac8dc62de4f54f75d2d00.png\"\n    },\n    {\n        \"pokedexNumber\": 4,\n        \"name\": \"Charmander\",\n        \"size\": 0.6,\n        \"weight\": 8.5,\n        \"stats\": 309,\n        \"picture\": \"https://archives.bulbagarden.net/media/upload/2/27/0004Charmander.png\"\n    }\n]"
+        }
+      ]
+    },
+    {
+      "name": "Get pokemon by id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/pokemons/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "pokemons", "1"]
+        },
+        "description": "Give a Pokemon ID in the url according to the number of the Pokemon in the Pokédex and you'll get all details about this Pokémon."
+      },
+      "response": [
+        {
+          "name": "Get pokemon by id",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/pokemons/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "pokemons", "1"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "163"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"a3-iE3qIVpJLsgvyzI+VQJy92/zmuM\""
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 25 Jan 2023 09:59:33 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"pokedexNumber\": 1,\n    \"name\": \"bulbasaur\",\n    \"size\": 0.7,\n    \"weight\": 6.9,\n    \"stats\": 318,\n    \"picture\": \"https://i.pinimg.com/originals/41/a3/fe/41a3fedd08cac8dc62de4f54f75d2d00.png\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Update a pokemon",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "  {\n    \"name\": \"Charmander\",\n    \"size\": 0.7,\n    \"stats\": 309,\n    \"weight\": 8.5,\n    \"picture\": \"https://archives.bulbagarden.net/media/upload/2/27/0004Charmander.png\"\n  }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/pokemons/4",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "pokemons", "4"]
+        },
+        "description": "By giving a valid body and the number of the Pokémon in the URL, you'll update the details of a Pokémon.\n\n> This endpoint need a JWT Token. Check how to get it in the documentation."
+      },
+      "response": [
+        {
+          "name": "Update a pokemon",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "  {\n    \"name\": \"Charmander\",\n    \"size\": 0.7,\n    \"stats\": 309,\n    \"weight\": 8.5,\n    \"picture\": \"https://archives.bulbagarden.net/media/upload/2/27/0004Charmander.png\"\n  }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/pokemons/4",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "pokemons", "4"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "html",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "text/html; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "17"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"11-gFPmoFJwAfQLeCVkpQI6Zhz/490\""
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 25 Jan 2023 10:11:55 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "1 pokemon updated"
+        },
+        {
+          "name": "Not found Pokemon",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "  {\n    \"name\": \"Charmander\",\n    \"size\": 0.7,\n    \"stats\": 309,\n    \"weight\": 8.5,\n    \"picture\": \"https://archives.bulbagarden.net/media/upload/2/27/0004Charmander.png\"\n  }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/pokemons/0",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "pokemons", "0"]
+            }
+          },
+          "status": "Not Found",
+          "code": 404,
+          "_postman_previewlanguage": "html",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "text/html; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "34"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"22-L5ZqNnTPFUXrOJniKhf48U3S148\""
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 25 Jan 2023 10:12:25 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "Pokemon not found, was not updated"
+        }
+      ]
+    },
+    {
+      "name": "Create a new type",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"id\": 19, \"name\": \"Sky\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/types",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "types"]
+        },
+        "description": "This endpoint is usd to create a new Type of Pokémon.\n\n> This endpoint need a JWT Token. Check how to get it in the documentation."
+      },
+      "response": [
+        {
+          "name": "Create a new type",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/types",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "types"]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "22"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"16-di+QSEQukkWyAsYypV7sh8ifU7s\""
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 25 Jan 2023 10:12:31 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": 19,\n    \"name\": \"Sky\"\n}"
+        },
+        {
+          "name": "Unavlid body",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/types",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "types"]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "html",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "text/html; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "41"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"29-Gtu+9mZXgl/LB4ZrbjLNvnq1mFg\""
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 25 Jan 2023 10:13:59 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "An error occurred while creating the type"
+        }
+      ]
+    },
+    {
+      "name": "Update abilities",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n   \"name\":\"Quick Attack\",\n   \"description\":\"Quick Attack inflicts damage. It has a priority of +1, so it is used before all moves that do not have increased priority.\",\n   \"power\":40,\n   \"pp_max\":20,\n   \"precision\":100\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/abilities/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "abilities", "1"]
+        },
+        "description": "With this endpoint, you'll update an ability of a Pokémon.\n\n> This endpoint need a JWT Token. Check how to get it in the documentation."
+      },
+      "response": [
+        {
+          "name": "Update abilities",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n   \"name\":\"Quick Attack\",\n   \"description\":\"Quick Attack inflicts damage. It has a priority of +1, so it is used before all moves that do not have increased priority.\",\n   \"power\":40,\n   \"pp_max\":20,\n   \"precision\":100\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/abilities/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "abilities", "1"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "html",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "text/html; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "17"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"11-aoeDU580rnGfCFlxDfD/OR+CAR4\""
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 25 Jan 2023 10:14:20 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "1 ability updated"
+        },
+        {
+          "name": "Ability not found",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n   \"name\":\"Quick Attack\",\n   \"description\":\"Quick Attack inflicts damage. It has a priority of +1, so it is used before all moves that do not have increased priority.\",\n   \"power\":40,\n   \"pp_max\":20,\n   \"precision\":100\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/abilities/100",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "abilities", "100"]
+            }
+          },
+          "status": "Not Found",
+          "code": 404,
+          "_postman_previewlanguage": "html",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "text/html; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "34"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"22-Z4JtT0zs/XQDJhbS8pqw60czak0\""
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 25 Jan 2023 10:17:12 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "Ability not found, was not updated"
+        }
+      ]
+    },
+    {
+      "name": "Update a type",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\": \"Ciel\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/types/30",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "types", "30"]
+        },
+        "description": "This endpoint will update a Type. You simply need to give the id of the type in the URL.\n\n> This endpoint need a JWT Token. Check how to get it in the documentation."
+      },
+      "response": [
+        {
+          "name": "Update a type",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"Ciel\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/types/19",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "types", "19"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "html",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "text/html; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "14"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"e-KyIFEhyrZ4/tRqJimT00Op3NSnk\""
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 25 Jan 2023 10:17:26 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "1 type updated"
+        },
+        {
+          "name": "Type not found",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"Ciel\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/types/30",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "types", "30"]
+            }
+          },
+          "status": "Not Found",
+          "code": 404,
+          "_postman_previewlanguage": "html",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "text/html; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "31"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"1f-mWY9QXMFeDOCaXK8ZPTNOYICNXA\""
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 25 Jan 2023 10:19:33 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "Type not found, was not updated"
+        }
+      ]
+    },
+    {
+      "name": "Delete a pokemon",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/pokemons/4",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "pokemons", "4"]
+        },
+        "description": "WARNING : This endpoint will delete a Pokémon.\n\n> This endpoint need a JWT Token. Check how to get it in the documentation."
+      },
+      "response": [
+        {
+          "name": "Delete a pokemon",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/pokemons/4",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "pokemons", "4"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "html",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "text/html; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "17"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"11-h4t4EUPhI2FHGfZ3P/6MjdRqvvA\""
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 25 Jan 2023 10:03:56 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "1 pokemon deleted"
+        },
+        {
+          "name": "Not found Pokemon",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/pokemons/4",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "pokemons", "4"]
+            }
+          },
+          "status": "Not Found",
+          "code": 404,
+          "_postman_previewlanguage": "html",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "text/html; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "34"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"22-b7mQ20LaIhT/eLHxE5hrb6kb4QA\""
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 25 Jan 2023 10:10:24 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "Pokemon not found, was not deleted"
+        }
+      ]
+    },
+    {
+      "name": "Get a JWT Token",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"user\": \"admin\",\n    \"password\": \"password\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/token",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "token"]
+        },
+        "description": "With this endpoint, you'll have a Token can be used for all update modification in the database (like Delete, Update or Create)/\n\nUse this token (key value) in the Headers with the \\`Authorization\\` header."
+      },
+      "response": [
+        {
+          "name": "Get a JWT Token",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"user\": \"admin\",\n    \"password\": \"password\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/token",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "token"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "291"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"123-fOq7UpcniVEBw+ipSCcZcoopvHY\""
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 25 Jan 2023 09:52:11 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"key\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiYWRtaW4iLCJwYXNzd29yZCI6InBhc3N3b3JkIiwiaWF0IjoxNjc0NjQwMzMxLCJleHAiOjMzNDkzMTY2NjJ9._7rQm0H8ejS3_IkI4AKaFxilJbxUCnI1avMfF9RrkXk\",\n    \"created\": \"Wed Jan 25 2023 09:52:11 GMT+0000 (Coordinated Universal Time)\",\n    \"expiration\": \"1674676331656\"\n}"
+        },
+        {
+          "name": "Get a JWT Token",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"user\": \"admin\",\n    \"password\": \"passworddd\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/token",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "token"]
+            }
+          },
+          "status": "Unauthorized",
+          "code": 401,
+          "_postman_previewlanguage": "html",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "text/html; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "22"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"16-0sfOb7yDE0flzz6swDsK6tUj+no\""
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 25 Jan 2023 10:10:33 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "You are not authorized"
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "value",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiYWRtaW4iLCJwYXNzd29yZCI6InBhc3N3b3JkIiwiaWF0IjoxNjc0NjQwMzMxLCJleHAiOjMzNDkzMTY2NjJ9._7rQm0H8ejS3_IkI4AKaFxilJbxUCnI1avMfF9RrkXk",
+        "type": "string"
+      },
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "value": "",
+      "type": "string",
+      "disabled": true
+    }
+  ]
+}
