@@ -1,16 +1,8 @@
 import * as jwt from 'jsonwebtoken'
+import JwtObject from '../../types/jwt'
 import { readFile } from '../functions/utils'
 
 const secretKeyPath = './secret.key'
-
-/**
- * Structured data was sent to the user and received
- */
-interface JwtObject {
-  key: string
-  created: string
-  expiration: string
-}
 
 class Jwt {
   private static readonly secret = readFile(secretKeyPath)
@@ -20,22 +12,20 @@ class Jwt {
   readonly jwt: JwtObject
 
   /**
- * @param {Any} payload Object contains data payload of the token
- * @param {Number} timeExpiration *Optional* = **3600** (1 hour)
- * number of seconds before the token will be expired
- */
-  constructor (payload: object | string, timeExpiration = 36000) {
+   * @param {Any} payload Object contains data payload of the token
+   * @param {Number} timeExpiration *Optional* = **3600** (1 hour)
+   * number of seconds before the token will be expired
+   */
+  constructor(payload: object | string, timeExpiration = 36000) {
     this.created = new Date().toString()
     this.payload = payload
-
-    // Calculate the expiration of the token
     const dateOfExpiration = new Date()
     dateOfExpiration.setSeconds(dateOfExpiration.getSeconds() + timeExpiration)
-    this.expiration = dateOfExpiration.toString()
+    this.expiration = String(dateOfExpiration.getTime())
     this.jwt = this.getJWT()
   }
 
-  private getJWT (): JwtObject {
+  private getJWT(): JwtObject {
     return {
       key: this.sign(),
       created: this.created,
@@ -44,23 +34,19 @@ class Jwt {
   }
 
   /**
- * This function create the JSON Web Token (String)
- */
-  private sign (): string {
-    return jwt.sign(
-      this.payload,
-      Jwt.secret,
-      {
-        expiresIn: this.expiration
-      }
-    )
+   * This function create the JSON Web Token (String)
+   */
+  private sign(): string {
+    return jwt.sign(this.payload, Jwt.secret, {
+      expiresIn: this.expiration
+    })
   }
 
   /**
- * Check if the token are available
- * @throws {TokenExpiredError} Token is not valid
- */
-  public static verifyToken (token: string): string | jwt.JwtPayload {
+   * Check if the token are available
+   * @throws {TokenExpiredError} Token is not valid
+   */
+  public static verifyToken(token: string): string | jwt.JwtPayload {
     return jwt.verify(token, this.secret)
   }
 
@@ -74,7 +60,7 @@ class Jwt {
   }
  ```
  */
-  private static decode (token: JwtObject): jwt.Jwt | null {
+  private static decode(token: JwtObject): jwt.Jwt | null {
     return jwt.decode(token.key, { complete: true })
   }
 }

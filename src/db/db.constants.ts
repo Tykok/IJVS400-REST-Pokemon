@@ -92,6 +92,36 @@ export const skillsTableName = 'skills'
 export const skillsModelName = 'skills'
 
 /**
+ * USER TABLE CONSTANTS
+ */
+
+export type UserColumn = {
+  id: number
+  username: string
+  password: string
+}
+
+export const userColumns = {
+  id: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    primaryKey: true,
+    autoIncrement: true
+  },
+  username: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  password: {
+    type: DataTypes.STRING,
+    allowNull: false
+  }
+}
+
+export const userTableName = 'user'
+export const userModelName = 'user'
+
+/**
  * TYPE CONSTANTS
  */
 export type TypeColumn = {
