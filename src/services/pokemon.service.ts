@@ -21,13 +21,13 @@ export const createPokemon = async (pokemon: Pokemon): Promise<Pokemon> => {
   return newPokemon as unknown as Pokemon
 }
 
-export const updatePokemon = async (pokemonId: number, pokemon: Pokemon): Promise<Pokemon> => {
+export const updatePokemon = async (pokemonId: number, pokemon: Pokemon): Promise<[affectedCount: number]> => {
   const updatedPokemon = await PokemonModel.update(pokemon, {
     where: {
       pokedexNumber: pokemonId
     }
   })
-  return updatedPokemon as unknown as Pokemon
+  return updatedPokemon
 }
 
 export const deletePokemonById = async (pokemonId: number): Promise<number> => {

@@ -27,25 +27,37 @@ pokemonRouter.get('/:id', async (req, res) => {
 
 pokemonRouter.post('/', checkEligibility, async (req, res) => {
   const pokemon = req.body as Pokemon
-  const newPokemon = await createPokemon(pokemon)
-  res.status(HttpStatusCode.CREATED).send(newPokemon)
+  createPokemon(pokemon)
+    .then((newPokemon) => res.status(HttpStatusCode.CREATED).send(newPokemon))
+    .catch(() => res.status(HttpStatusCode.BAD_REQUEST).send('An error occured while creating the pokemon'))
 })
 
 pokemonRouter.put('/:id', checkEligibility, async (req, res) => {
   const pokemon = req.body as Pokemon
   const pokemonId = Number(req.params.id)
-  const updatedPokemon = await updatePokemon(pokemonId, pokemon)
-  if (!updatedPokemon) res.status(HttpStatusCode.NOT_FOUND).send('Pokemon not found, was not updated')
-  res.status(HttpStatusCode.OK).send(`${updatedPokemon} pokemon updated`)
+  updatePokemon(pokemonId, pokemon)
+    .then((updatedPokemon) => {
+      if (updatedPokemon[0] > 0) {
+        res.status(HttpStatusCode.OK).send(`${updatedPokemon} pokemon updated`)
+      } else {
+        res.status(HttpStatusCode.NOT_FOUND).send('Pokemon not found, was not updated')
+      }
+    })
+    .catch(() => res.status(HttpStatusCode.NOT_FOUND).send('Pokemon not found, was not updated'))
 })
 
 pokemonRouter.delete('/:id', checkEligibility, async (req, res) => {
   const pokemonId = Number(req.params.id)
   if (!pokemonId) res.status(HttpStatusCode.BAD_REQUEST).send('Invalid pokemon id')
-  const deletedPokemon = await deletePokemonById(pokemonId)
-  if (!deletedPokemon) res.status(HttpStatusCode.NOT_FOUND).send('No pokemon found to delete')
-
-  res.status(HttpStatusCode.OK).send(`${deletedPokemon} pokemon deleted`)
+  deletePokemonById(pokemonId)
+    .then((numberOfDeletion) => {
+      if (numberOfDeletion > 0) {
+        res.status(HttpStatusCode.OK).send(`${numberOfDeletion} pokemon deleted`)
+      } else {
+        res.status(HttpStatusCode.NOT_FOUND).send('Pokemon not found, was not deleted')
+      }
+    })
+    .catch((err) => res.status(HttpStatusCode.NOT_FOUND).send(err))
 })
 
 export default pokemonRouter

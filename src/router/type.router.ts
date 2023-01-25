@@ -17,18 +17,24 @@ typeRouter.get('/:id', async (req, res) => {
 
 typeRouter.post('/', checkEligibility, async (req, res) => {
   const type = req.body
-  const newType = await createType(type)
-  if (!newType) res.status(HttpStatusCode.BAD_REQUEST).send('Invalid type')
-  res.status(HttpStatusCode.CREATED).send(newType)
+  createType(type)
+    .then((newType) => res.status(HttpStatusCode.CREATED).send(newType))
+    .catch(() => res.status(HttpStatusCode.INTERNAL_SERVER_ERROR).send('An error occurred while creating the type'))
 })
 
 typeRouter.put('/:id', checkEligibility, async (req, res) => {
   const type = req.body
   const typeId = Number(req.params.id)
   if (!typeId) res.status(HttpStatusCode.BAD_REQUEST).send('Invalid type id')
-  const updatedType = await updateType(typeId, type)
-  if (!updatedType) res.status(HttpStatusCode.NOT_FOUND).send('Type not found, was not updated')
-  res.status(HttpStatusCode.OK).send(`${updatedType} type updated`)
+  updateType(typeId, type)
+    .then((updatedType) => {
+      if (updatedType[0] > 0) {
+        res.status(HttpStatusCode.OK).send(`${updatedType} type updated`)
+      } else {
+        res.status(HttpStatusCode.NOT_FOUND).send(`Type not found, was not updated`)
+      }
+    })
+    .catch(() => res.status(HttpStatusCode.INTERNAL_SERVER_ERROR).send('An error occurred while updating the type'))
 })
 
 export default typeRouter
