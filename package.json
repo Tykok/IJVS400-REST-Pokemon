@@ -14,7 +14,8 @@
     "build:watch": "yarn build -w",
     "run:docker": "npm i && npm run build && docker-compose up --build",
     "lint": "eslint .",
-    "lint:fix": "eslint --fix"
+    "lint:fix": "eslint --fix",
+    "gen:secret": "openssl rand -base64 32 > ./secret.key"
   },
   "dependencies": {
     "axios": "^0.25.0",

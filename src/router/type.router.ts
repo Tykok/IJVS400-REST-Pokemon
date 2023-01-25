@@ -3,6 +3,7 @@ import express = require('express')
 import HttpStatusCode from '../constant'
 
 import { createType, getTypeById, updateType } from '../services/type.service'
+import checkEligibility from './middleware/checkEligibility'
 
 const typeRouter = express.Router()
 
@@ -14,14 +15,14 @@ typeRouter.get('/:id', async (req, res) => {
   res.status(HttpStatusCode.OK).send(type)
 })
 
-typeRouter.post('/', async (req, res) => {
+typeRouter.post('/', checkEligibility, async (req, res) => {
   const type = req.body
   const newType = await createType(type)
   if (!newType) res.status(HttpStatusCode.BAD_REQUEST).send('Invalid type')
   res.status(HttpStatusCode.CREATED).send(newType)
 })
 
-typeRouter.put('/:id', async (req, res) => {
+typeRouter.put('/:id', checkEligibility, async (req, res) => {
   const type = req.body
   const typeId = Number(req.params.id)
   if (!typeId) res.status(HttpStatusCode.BAD_REQUEST).send('Invalid type id')

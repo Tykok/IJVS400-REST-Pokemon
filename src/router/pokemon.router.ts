@@ -4,6 +4,7 @@ import HttpStatusCode from '../constant'
 
 import { createPokemon, deletePokemonById, getAllPokemon, getPokemon, updatePokemon } from '../services/pokemon.service'
 import Pokemon from '../types/pokemon'
+import checkEligibility from './middleware/checkEligibility'
 
 const pokemonRouter = express.Router()
 
@@ -24,13 +25,13 @@ pokemonRouter.get('/:id', async (req, res) => {
   res.status(HttpStatusCode.OK).send(pokemon)
 })
 
-pokemonRouter.post('/', async (req, res) => {
+pokemonRouter.post('/', checkEligibility, async (req, res) => {
   const pokemon = req.body as Pokemon
   const newPokemon = await createPokemon(pokemon)
   res.status(HttpStatusCode.CREATED).send(newPokemon)
 })
 
-pokemonRouter.put('/:id', async (req, res) => {
+pokemonRouter.put('/:id', checkEligibility, async (req, res) => {
   const pokemon = req.body as Pokemon
   const pokemonId = Number(req.params.id)
   const updatedPokemon = await updatePokemon(pokemonId, pokemon)
@@ -38,7 +39,7 @@ pokemonRouter.put('/:id', async (req, res) => {
   res.status(HttpStatusCode.OK).send(`${updatedPokemon} pokemon updated`)
 })
 
-pokemonRouter.delete('/:id', async (req, res) => {
+pokemonRouter.delete('/:id', checkEligibility, async (req, res) => {
   const pokemonId = Number(req.params.id)
   if (!pokemonId) res.status(HttpStatusCode.BAD_REQUEST).send('Invalid pokemon id')
   const deletedPokemon = await deletePokemonById(pokemonId)
