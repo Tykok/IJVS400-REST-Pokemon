@@ -1,7 +1,6 @@
-import express = require('express')
+import express from 'express'
 
 import HttpStatusCode from '../constant'
-
 import { createPokemon, deletePokemonById, getAllPokemon, getPokemon, updatePokemon } from '../services/pokemon.service'
 import Pokemon from '../types/pokemon'
 import checkEligibility from './middleware/checkEligibility'

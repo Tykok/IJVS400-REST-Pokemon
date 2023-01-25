@@ -1,5 +1,5 @@
 import { Model } from 'sequelize'
-import { sequelizeConnection } from '../connexion'
+import sequelizeConnection from '../connexion'
 import { defaultSchema, pokemonColumns, pokemonModelName, pokemonTableName } from '../db.constants'
 import SkillsModel from './skills.model'
 import TypeModel from './type.model'

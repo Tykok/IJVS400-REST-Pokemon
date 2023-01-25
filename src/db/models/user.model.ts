@@ -1,5 +1,5 @@
 import { Model, QueryTypes } from 'sequelize'
-import { sequelizeConnection } from '../connexion'
+import sequelizeConnection from '../connexion'
 import { defaultSchema, typeColumns, userModelName, userTableName } from '../db.constants'
 
 const sequelize = sequelizeConnection

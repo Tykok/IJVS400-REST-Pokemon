@@ -1,7 +1,6 @@
-import express = require('express')
+import express from 'express'
 
 import HttpStatusCode from '../constant'
-
 import { createType, getTypeById, updateType } from '../services/type.service'
 import checkEligibility from './middleware/checkEligibility'
 

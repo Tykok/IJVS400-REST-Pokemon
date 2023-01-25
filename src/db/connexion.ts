@@ -33,4 +33,6 @@ const connect = (): Sequelize => {
   return sequelize
 }
 
-export const sequelizeConnection = connect()
+const sequelizeConnection = connect()
+
+export default sequelizeConnection

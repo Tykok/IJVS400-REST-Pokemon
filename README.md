@@ -104,7 +104,7 @@ npm run dev
 
 ## Documentation
 
-Learn more about using [Pokémon API][projectLink]
+Learn more about using [Pokémon API][projectLink], and check the Public documentation [here](https://documenter.getpostman.com/view/24354369/2s8ZDcyKDA)
 
 - [Getting Started](#table-of-contents)
 - [API Reference][DocAPILink]

@@ -1,7 +1,9 @@
 import dotenv from 'dotenv'
 import express from 'express'
 import morgan from 'morgan'
+
 import router from './router/router'
+
 const app = express()
 
 // enables environment variables by

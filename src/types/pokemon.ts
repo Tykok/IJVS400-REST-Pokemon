@@ -3,7 +3,7 @@ type Pokemon = {
   name: string
   size: number
   weight: number
-  stats: object[]
+  stats: number
   picture?: string
 }
 
