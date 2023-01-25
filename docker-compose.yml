@@ -13,8 +13,6 @@ services:
     depends_on:
       - postgres_database
     environment:
-      SECURE_USER: node
-      SECURE_PASSWORD: node
       DB_NAME: pokemon
       DB_PASSWORD: docker
       DB_USER: docker

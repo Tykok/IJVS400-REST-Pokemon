@@ -16,11 +16,11 @@ export const createType = async (type: Type): Promise<Type> => {
   return newType as unknown as Type
 }
 
-export const updateType = async (typeId: number, type: Type): Promise<Type> => {
+export const updateType = async (typeId: number, type: Type): Promise<[affectedNumber: number]> => {
   const updatedType = await TypeModel.update(type, {
     where: {
       id: typeId
     }
   })
-  return updatedType as unknown as Type
+  return updatedType
 }

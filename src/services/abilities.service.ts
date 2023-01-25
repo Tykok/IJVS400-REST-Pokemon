@@ -24,11 +24,11 @@ export const getAllPokemonAbilities = async (): Promise<Ability[]> => {
   return allAbilities as unknown as Ability[]
 }
 
-export const updateAbility = async (abilityId: number, ability: Ability): Promise<Ability> => {
+export const updateAbility = async (abilityId: number, ability: Ability): Promise<[affectedNumber: number]> => {
   const updatedAbility = await SkillsModel.update(ability, {
     where: {
       id: abilityId
     }
   })
-  return updatedAbility as unknown as Ability
+  return updatedAbility
 }
